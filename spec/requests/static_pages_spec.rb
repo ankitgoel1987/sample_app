@@ -4,7 +4,7 @@ describe "Static pages" do
 
   describe "Home page" do
 
-  	it "should have the content 'Sample App'" do
+  	it "should have the content and h1 'Sample App'" do
   		visit '/static_pages/home'
   		page.should have_content('Sample App')
       page.should have_selector('h1', :text => 'Sample App')
@@ -19,7 +19,7 @@ describe "Static pages" do
 
   describe "Help page" do
 
-  	it "should have the content 'Help'" do
+  	it "should have the content and h1 'Help'" do
   		visit '/static_pages/help'
   		page.should have_content('Help')
       page.should have_selector('h1', :text => 'Help')
@@ -34,7 +34,7 @@ describe "Static pages" do
 
   describe "About page" do
 
-  	it "should have the content 'About Us'" do
+  	it "should have the content and h1 'About Us'" do
   		visit '/static_pages/about'
   		page.should have_content('About Us')
       page.should have_selector('h1', :text => 'About Us')
@@ -46,5 +46,18 @@ describe "Static pages" do
     end
   end
 
+  describe "Contact page" do
+
+    it "should have the content 'Contact'" do
+      visit '/static_pages/contact'
+      page.should have_content('Contact')
+      page.should have_selector('h1', :text => 'Contact')
+    end  
+
+    it "should have the right title" do
+      visit '/static_pages/contact'
+      page.should have_selector('title', :text => "Sample App | Contact")
+    end
+  end
 
 end
